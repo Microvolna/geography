@@ -7,7 +7,7 @@
         <meta charset="UTF-8" name="viewport" content="width=320,user-scalable=false" />
             <style>
                 body {background-color: rgb(32, 32, 32);}
-                h1 {color: #F8B195; font-family: Consolas, monaco, monospace; font-size: 30px; font-style: normal;}
+                h1 {color: rgb(221, 255, 152); font-family: Consolas, monaco, monospace; font-size: 30px; font-style: normal; padding: px;}
                 h2    {color:rgb(184, 205, 143); font-family: Consolas, monaco,monospace; font-size: 21px; font-style: normal;}
                 h5    {color: rgb(107, 204, 28); font-family: Consolas, monaco, monospace; font-size: 13px;}
                 h6    {color: rgb(107, 204, 28); font-family: Consolas, monaco, monospace; font-size: 13px; line-height: 0px;}
@@ -25,6 +25,7 @@
                 }, {
                     searchControlProvider: 'yandex#search'
                 });
+
 
                 var myPlacemark1 = new ymaps.Placemark([55, 37], {
                     balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
@@ -55,7 +56,7 @@
                 });
 
                 var myPlacemark5 = new ymaps.Placemark([55, 45], {
-                    balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
+                    balloonContent: 'АО "Белебеевский молочный комбинат" Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
                 }, {
                     preset: 'islands#icon',
                     iconColor: '#355C7D'
@@ -73,9 +74,9 @@
     </head>
     
     <body>
-        <h1 align = 'center'>Где производят разные продукты (карта)</h1>
+        <h1 align = 'center'><strong>Где производят разные продукты (карта)</strong></h1>
         <div align = 'right' id="map"></div>
-        <h2 align = 'right'>Какое то слово:
+        <h2 align = 'right'>P.S:
             <h5 align = 'right'>Проект создан специально для урока географии</h5>
             <h5 align = 'right'> P.S. <strong>Марина Викторовна, поставте пятерку)</strong></h5>
         </h2>
@@ -83,13 +84,12 @@
             <a align = 'right' href="https://yandex.ru/legal/maps_termsofuse/"><h6>
                 Яндекс карты</h6></a>
         
-        <h2>Разработчики:
-            <a href="https://vk.com/i_am.lost"><h6><strong>Мельчиков Иван</strong></h6></a>
-            <a href="https://vk.com/hackerr0r"><h6><strong>Байбородов Ярослав</strong></h6></a>
+        <h2><span>Разработчики:</span>
+            <a title='Программист' href="https://vk.com/i_am.lost"><h6><strong>Мельчиков <strong>Иван</strong></strong></h6></a>
+            <a title='Разработчик БД' href="https://vk.com/hackerr0r"><h6><strong>Байбородов <strong>Ярослав</strong></strong></h6></a>
         </h2>
         <h2>Исходники:
-            <a href="https://github.com/Microvolna/geography"><h6><strong>Репозиторий на гитхабе</strong></h6></a>
+            <a href="https://microvolna.github.io/geography/"><h6><strong>Репозиторий на гитхабе</strong></h6></a>
         </h2>
-        
     </body>
 </html>
