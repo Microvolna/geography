@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>География</title>
+        <meta charset="UTF-8" name="viewport" content="width=320,user-scalable=false" />
+            <style>
+                body {background-color: rgb(32, 32, 32);}
+                h1 {color: #F8B195; font-family: Consolas, monaco, monospace; font-size: 30px; font-style: normal;}
+                h2    {color:rgb(184, 205, 143); font-family: Consolas, monaco,monospace; font-size: 21px; font-style: normal;}
+                h5    {color: rgb(107, 204, 28); font-family: Consolas, monaco, monospace; font-size: 13px;}
+                h6    {color: rgb(107, 204, 28); font-family: Consolas, monaco, monospace; font-size: 13px; line-height: 0px;}
+                div {width: 100%; height: 400px}
+                table {color: aliceblue; border: 6px #F8B195; width: 90%}
+                th {border:#F8B195}
+                td {border:#F8B195}
+            </style>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=90d81e47-2b90-44b4-b443-088a3813385b&lang=ru_RU" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            ymaps.ready(init);
+
+            function init() {
+                var myMap = new ymaps.Map("map", {
+                    center: [55.76, 37.64],
+                    zoom: 2
+                }, {
+                    searchControlProvider: 'yandex#search'
+                });
+
+                var myPlacemark1 = new ymaps.Placemark([55, 37], {
+                    balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#F8B195'
+                });
+
+                var myPlacemark2 = new ymaps.Placemark([55, 39], {
+                    balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#F67280'
+                });
+
+                var myPlacemark3 = new ymaps.Placemark([55, 41], {
+                    balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#C06C84'
+                });
+
+                var myPlacemark4 = new ymaps.Placemark([55, 43], {
+                    balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#6C5B7B'
+                });
+
+                var myPlacemark5 = new ymaps.Placemark([55, 45], {
+                    balloonContent: 'Номер: 1, Форма: АО, Наименование: Белебеевский молочный комбинат, Марка: None, Статус: Действует, ИНН, КПП, ОГРН: цыферки, Координаты: [56, 57], Юридический адрес: юридические букавки, Фактический адрес: фактические букавки, Группа: 1-ая и 2-ая, Специализация: Молочная'
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#355C7D'
+                });
+
+                myMap.geoObjects
+                .add(myPlacemark1)
+                .add(myPlacemark2)
+                .add(myPlacemark3)
+                .add(myPlacemark4)
+                .add(myPlacemark5);
+            }
+
+        </script>
+    </head>
+    
+    <body>
+        <h1 align = 'center'>Где производят разные продукты (карта)</h1>
+        <div align = 'right' id="map"></div>
+        <h2 align = 'right'>Какое то слово:
+            <h5 align = 'right'>Проект создан специально для урока географии</h5>
+            <h5 align = 'right'> P.S. <strong>Марина Викторовна, поставте пятерку)</strong></h5>
+        </h2>
+            
+            <a align = 'right' href="https://yandex.ru/legal/maps_termsofuse/"><h6>
+                Яндекс карты</h6></a>
+        
+        <h2>Разработчики:
+            <a href="https://vk.com/i_am.lost"><h6><strong>Мельчиков Иван</strong></h6></a>
+            <a href="https://vk.com/hackerr0r"><h6><strong>Байбородов Ярослав</strong></h6></a>
+        </h2>
+        <h2>Исходники:
+            <a href="https://vk.com/i_am.lost"><h6><strong>Репозиторий на гитхабе</strong></h6></a>
+        </h2>
+        
+    </body>
+</html>
