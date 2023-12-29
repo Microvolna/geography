@@ -12,6 +12,18 @@
                 h5    {color: rgb(107, 204, 28); font-family: Consolas, monaco, monospace; font-size: 13px;}
                 h6    {color: rgb(107, 204, 28); font-family: Consolas, monaco, monospace; font-size: 13px; line-height: 0px;}
                 div {width: 100%; height: 400px}
+                section h2 { font-size: 2rem; }
+                section div { font-size: 1rem; }
+                /* Для ширины 1024 пикселей и меньше */
+                @media screen and (max-width: 1024px) {
+                 section h2 { font-size: 2.2rem; }
+                 section div { font-size: 1.2rem; }
+                }
+                /* Для ширины 600 пикселей и меньше */
+                @media screen and (max-width: 600px) {
+                 section h2 { font-size: 2.5rem; }
+                 section div { font-size: 1.5rem; }
+               }
             </style>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=90d81e47-2b90-44b4-b443-088a3813385b&lang=ru_RU" type="text/javascript"></script>
         <script type="text/javascript">
