@@ -9,7 +9,7 @@
         <title>Где производят продукты питания - Проект по географии</title>
         <link rel="icon" href="favicon.ico">
         <meta charset="UTF-8" name="viewport" content="width=320,user-scalable=false" />
-            <style>
+        <style>
                 body {background-color: rgb(32, 32, 32);}
                 h1 {color: rgb(221, 255, 152); font-family: Consolas, monaco, monospace; font-size: 30px; font-style: normal; padding: px;}
                 h2    {color:rgb(184, 205, 143); font-family: Consolas, monaco,monospace; font-size: 21px; font-style: normal;}
@@ -28,7 +28,131 @@
                  section h2 { font-size: 2.5rem; }
                  section div { font-size: 1.5rem; }
                }
-            </style>
+        </style>
+        <style>
+                    #zatemnenie {
+                      background: rgba(102, 102, 102, 0.5);
+                      width: 100%;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      display: none;
+                    }
+                    #okno {
+                      width: 500px;
+                      height: 50px;
+                      text-align: center;
+                      padding: 15px;
+                      border: 3px solid #3b3b3b;
+                      border-radius: 10px;
+                      color: #3b3b3b;
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                      bottom: 0;
+                      left: 0;
+                      margin: auto;
+                      background: #fff;
+                    }
+                    #zatemnenie:target {display: block;}
+                    .close {
+                      display: inline-block;
+                      border: 1px solid #3b3b3b;
+                      color: #3b3b3b;
+                      padding: 0 12px;
+                      margin: 10px;
+                      text-decoration: none;
+                      background: #f2f2f2;
+                      font-size: 14pt;
+                      cursor:pointer;
+                    }
+                    .close:hover {background: #e6e6ff;}
+        </style>
+        <style>
+                #overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.65);
+                    z-index: 999;
+                    -webkit-animation: fade .6s;
+                    -moz-animation: fade .6s;
+                    animation: fade .6s;
+                    overflow: auto;
+                }
+        
+                
+                .popup {
+                    top: 25%;
+                    left: 0;
+                    right: 0;       
+                    font-size: 14px;
+                    margin: auto;
+                    width: 85%;
+                    min-width: 320px;
+                    max-width: 600px;
+                    position: absolute;
+                    padding: 15px 20px;
+                    border: 1px solid #383838;
+                    background: #fefefe;
+                    z-index: 1000;
+                    -webkit-border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -ms-border-radius: 4px;
+                    border-radius: 4px;
+                    font: 14px/18px 'Tahoma', Arial, sans-serif;
+                    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+                    -moz-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+                    -ms-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+                    box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+                    -webkit-animation: fade .6s;
+                    -moz-animation: fade .6s;
+                    animation: fade .6s;
+                }
+        
+                .close {
+                    top: 10px;
+                    right: 10px;
+                    width: 32px;
+                    height: 32px;
+                    position: absolute;
+                    border: none;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    border-radius: 50%;
+                    background-color: rgba(31, 140, 131, 0.9);
+                    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    cursor: pointer;
+                    outline: none;
+                
+                }
+        
+                .close:before {
+                    color: rgba(255, 255, 255, 0.9);
+                    content: "✖";
+                    font-family:  Arial, Helvetica, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    text-decoration: none;
+                    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+                    -webkit-transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                    transition: all 0.5s;
+                }
+        
+                /* кнопка закрытия при наведении */
+                .close:hover {
+                    background-color: rgba(252, 20, 0, 0.8);
+                }
+        </style>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=90d81e47-2b90-44b4-b443-088a3813385b&lang=ru_RU" type="text/javascript"></script>
         <script type="text/javascript">
 
@@ -488,19 +612,27 @@
     </head>
     
     <body>
+        <div id="overlay">
+            <div class="popup">
+                <p>На карте представлены места производства продуктов питания из разных сфер пищевой промышленности РФ.</p>
+                <p>Их я выбрал случайно, среди продуктов представленных на сайте одной из компаний доставок.</p>
+                <p>Всего на карте представлены 52 метки. Это далеко не все существующие производства, а только их малая часть, тк я физически не могу взять все.</p>
+                <p>Проект (сайт) был создан для того, чтобы получить 5 по географии. И для того что-бы подтянуть навыки программирования.</p>
+                <p>P.S. Марина Викторовна, поставте пятерку, пожалуйста.</p>
+                <p>Разработчик - 
+                    <a href="https://vk.com/i_am.lost">Мельчиков Иван</a></p>
+                <button class="close" title="Закрыть" onclick="document.getElementById('overlay').style.display='none';"></button>
+                <script type="text/javascript">
+                    var delay_popup = 0;
+                    setTimeout("document.getElementById('overlay').style.display='block'", delay_popup);
+                </script>
+            </div>
+        </div>
+
         <h1 align = 'center'><strong>Где производят разные продукты (карта)</strong></h1>
-        <div align = 'right' id="map"></div>
-        <h2 align = 'right'>P.S:
-            <h5 align = 'right'>Проект создан специально для урока географии</h5>
-            <h5 align = 'right'> P.S. <strong>Марина Викторовна, поставте пятерку)</strong></h5>
-        </h2>
-            
+        <div align = 'right' id="map"></div>           
             <a align = 'right' href="https://yandex.ru/legal/maps_termsofuse/"><h6>
                 Яндекс карты</h6></a>
-        
-        <h2><span>Разработчик:</span>
-            <a title='Программист' href="https://vk.com/i_am.lost"><h6><strong>Мельчиков <strong>Иван</strong></strong></h6></a>
-        </h2>
         <h2>Исходники:
             <a href="https://github.com/Microvolna/geography"><h6><strong>Репозиторий на гитхабе</strong></h6></a>
         </h2>
